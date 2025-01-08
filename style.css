@@ -69,9 +69,6 @@ body {
     
 }
 
-
-
-
 #person {
     height: 100vh;
     width: 100%;
@@ -666,7 +663,143 @@ body {
 }
 
 
+@media (max-width: 768px){
 
+    #header
+    {
+        padding: 15px 10px;
+        width: 100%;
+    }
+
+    body{
+        font-size: 10px;
+    }
+
+    #about,
+    #person,
+    #projects,
+    #contacts,
+    #footer{
+        height: auto;
+        width: 140%;
+    }
+
+    .projects-title h2{
+        text-align: center;
+        margin: 2rem;
+        font-size: 2rem;
+    }
+
+    .background-about{
+        display: none;
+    }
+
+    .wrapper-projects {
+        flex-direction: column;
+        height: 1291px;
+    }
+
+    .contact-title h2 {
+        text-align: center;
+        margin: 1rem 2rem;
+        padding: 0rem 0rem;
+    }
+
+    .card-project {
+        width: 290px;
+        height: 370px;
+        padding: 30px 20px 20px;
+        margin: 30px 10px;
+        position: relative;
+        background: var(--color-white);
+        display: flex
+    ;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+    #about{
+        flex-direction: column;
+    }
+    .box-about{
+        width: 90%;
+    }
+
+    .img-wrapper img{
+        display: none;
+    }
+    .person-content div h1{
+        font-size: 3rem;
+        line-height: 4rem;
+    }
+
+    .img-wrapper::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background: 
+    linear-gradient(.25turn, transparent 30%, var(--color-black)),
+    linear-gradient(.5turn, transparent 30%, var(--color-black)),
+    linear-gradient(1turn, transparent 65%, var(--color-black));
+}
+
+    .container-footer h3 {
+        font-size: 1.5rem;
+    }
+    .container-footer p{
+        font-size: 1rem;
+    }
+
+    .container-footer a{
+        text-decoration: none;
+        color: var(--color-white);
+    }
+
+    .container-footer a:hover{
+        transition: color .3s ease;
+        color: var(--color-blue);
+    }
+
+
+    .container-footer i{
+        font-size: 1.5rem;
+    }
+
+    .container-footer img{
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        filter: brightness(0.8);
+        transition: all .3s ease;
+    }
+
+    .container-footer img:hover{
+        transform: scale(1.15);
+        filter: brightness(1);
+    }
+
+    .container-footer a{
+        text-decoration: none;
+        color: var(--color-white);
+    }
+
+    .container-footer a:hover{
+        transition: color .3s ease;
+        color: var(--color-blue);
+    }
+
+    .container-footer span{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    
+}
 
 @keyframes written_text {
     100% {
