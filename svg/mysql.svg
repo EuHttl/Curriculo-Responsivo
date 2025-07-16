@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="8" fill="#4479A1"/>
+  <!-- Delfim MySQL em azul teal -->
+  <path d="M20 36C20 28 26 22 32 22C38 22 44 28 44 36C44 44 38 50 32 50C26 50 20 44 20 36Z" fill="#00CED1"/>
+  <!-- Olhos -->
+  <circle cx="26" cy="32" r="2" fill="#4479A1"/>
+  <circle cx="38" cy="32" r="2" fill="#4479A1"/>
+  <!-- Boca -->
+  <ellipse cx="32" cy="40" rx="3" ry="1" fill="#4479A1"/>
+  <!-- Bico -->
+  <path d="M14 34L18 36L14 38V34Z" fill="#00CED1"/>
+  <!-- Barbatana dorsal -->
+  <path d="M30 24L32 18L34 24L32 22L30 24Z" fill="#00CED1"/>
+  <!-- Barbatanas laterais -->
+  <path d="M20 30L18 32L20 34L22 32L20 30Z" fill="#00CED1"/>
+  <path d="M44 30L42 32L44 34L46 32L44 30Z" fill="#00CED1"/>
+  <!-- Cauda -->
+  <path d="M50 34L46 36L50 38L48 36L50 34Z" fill="#00CED1"/>
+  <!-- Texto "My" em azul teal -->
+  <text x="32" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#00CED1">My</text>
+  <!-- Texto "SQL" em laranja -->
+  <text x="32" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#F29111">SQL</text>
+</svg> 
