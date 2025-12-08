@@ -1,25 +1,61 @@
-# Meu Currículo
-Bem-vindo ao repositório do meu currículo! Este repositório contém uma versão responsiva do meu currículo, desenvolvida com HTML, CSS e JavaScript.
+# Portfólio - Hyttalo Costa
 
-Sobre Mim
-Nome: Hyttalo Costa,
-Profissão: Atualmente sou estagiário no setor de Desenvolvimento Front-end,
-LinkedIn: www.linkedin.com/in/hyttalo-costa-1991841b2,
-GitHub: https://github.com/EuHttl,
-Email: hyttalo2002@gmail.com;
+Portfólio moderno desenvolvido com React, Vite e bibliotecas modernas.
 
-# Objetivo
-Este projeto tem como objetivo apresentar meu currículo de forma interativa e responsiva, utilizando tecnologias web modernas. A ideia é facilitar o acesso às minhas informações profissionais e permitir uma visualização otimizada em diferentes dispositivos.
+## 🚀 Tecnologias
 
-## Tecnologias Utilizadas
+- **React 18** - Biblioteca JavaScript para interfaces
+- **Vite** - Build tool moderna e rápida
+- **Framer Motion** - Animações fluidas e avançadas
+- **React Icons** - Ícones SVG populares
+- **AOS** - Animate On Scroll
+- **React Intersection Observer** - Detecção de scroll
 
-HTML: Estruturação do conteúdo.
-CSS: Estilização e responsividade.
-JavaScript: Funcionalidades interativas.
-Estrutura do Projeto
-index.html: Página principal do currículo.
-style.css: Estilos aplicados ao currículo.
-script.js: Scripts para funcionalidades interativas.
+## 📦 Instalação
 
-Como Visualizar
-Para visualizar o currículo, basta abrir o arquivo index.html em qualquer navegador web. Ou você pode acessar diretamente a versão hospedada aqui.
+```bash
+# Instalar dependências
+npm install
+
+# Iniciar servidor de desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+
+# Preview do build de produção
+npm run preview
+```
+
+## 🎨 Features
+
+- ✨ Animações suaves com Framer Motion
+- 📱 Design totalmente responsivo
+- 🎯 Performance otimizada
+- ♿ Acessibilidade (A11y)
+- 🌙 Tema dark moderno
+- 🚀 SEO otimizado
+
+## 📄 Estrutura do Projeto
+
+```
+portfolio-hyttalo/
+├── public/          # Arquivos estáticos
+│   ├── img/        # Imagens
+│   └── svg/        # Ícones SVG
+├── src/
+│   ├── components/ # Componentes React
+│   ├── styles/     # Estilos globais
+│   ├── App.jsx     # Componente principal
+│   └── main.jsx    # Entry point
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## 👤 Autor
+
+**Hyttalo Costa**
+- GitHub: [@EuHttl](https://github.com/EuHttl)
+- LinkedIn: [hyttalo-costa](https://www.linkedin.com/in/hyttalo-costa-1991841b2/)
+- Email: hyttalo2002@gmail.com

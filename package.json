@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-hyttalo",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Portfolio moderno de Hyttalo Costa - Desenvolvedor Full Stack",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^10.16.16",
+    "react-icons": "^4.12.0",
+    "react-intersection-observer": "^9.5.3",
+    "react-typed": "^1.2.0",
+    "aos": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.0.8"
+  }
+}
+
