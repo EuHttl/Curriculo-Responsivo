@@ -60,12 +60,6 @@ const About = () => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.div className="about-image" variants={itemVariants}>
-            <div className="image-wrapper">
-              <img src="/img/andras-vas-Bd7gNnWJBkU-unsplash.jpg" alt="Desenvolvimento" />
-              <div className="image-overlay" />
-            </div>
-          </motion.div>
 
           <motion.div className="about-text" variants={itemVariants}>
             <div className="about-intro">
@@ -78,15 +72,43 @@ const About = () => {
             <div className="about-description">
               <p>
                 Tenho 23 anos e sou apaixonado por tecnologia e desenvolvimento de software. 
-                Formado em Análise e Desenvolvimento de Sistemas, venho me especializando 
+                Formado em <strong>Análise e Desenvolvimento de Sistemas</strong>, venho me especializando 
                 em tecnologias modernas para criar soluções web completas e eficientes.
               </p>
               <p>
                 Minha stack principal inclui <strong>JavaScript</strong>, <strong>React.js</strong>, 
                 <strong> Node.js</strong>, <strong>Java</strong>, <strong>Prisma</strong> e 
                 <strong> MySQL</strong>. Estou sempre em busca de novos desafios e oportunidades 
-                para crescer profissionalmente.
+                para crescer profissionalmente e contribuir com projetos inovadores.
               </p>
+            </div>
+
+            <div className="about-experience">
+              <h3>Experiência & Formação</h3>
+              <div className="experience-timeline">
+                <div className="timeline-item">
+                  <div className="timeline-dot"></div>
+                  <div className="timeline-content">
+                    <h4>Desenvolvedor Full Stack</h4>
+                    <p className="timeline-period">05/2025 - Presente</p>
+                    <p className="timeline-description">
+                      Desenvolvimento de aplicações web completas, desde o frontend até o backend, 
+                      utilizando tecnologias modernas e melhores práticas de desenvolvimento.
+                    </p>
+                  </div>
+                </div>
+                <div className="timeline-item">
+                  <div className="timeline-dot"></div>
+                  <div className="timeline-content">
+                    <h4>Graduação em Análise e Desenvolvimento de Sistemas</h4>
+                    <p className="timeline-period">Concluído</p>
+                    <p className="timeline-description">
+                      Formação técnica completa em desenvolvimento de sistemas, com foco em 
+                      arquitetura de software, banco de dados e metodologias ágeis.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="about-skills">
@@ -115,8 +137,8 @@ const About = () => {
               transition={{ delay: 1.2 }}
             >
               <motion.a
-                href="/hyttalocosta2025.pdf"
-                download="Hyttalo_Costa_Curriculo.pdf"
+                href="/curriculo_2025.pdf"
+                download="curriculo_2025.pdf"
                 className="btn btn-primary"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
