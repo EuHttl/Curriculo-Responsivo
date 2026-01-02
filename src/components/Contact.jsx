@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaMapMarkerAlt, FaEnvelope, FaWhatsapp, FaLinkedinIn } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaEnvelope, FaWhatsapp, FaLinkedinIn, FaPaperPlane } from 'react-icons/fa'
 
 const contacts = [
   {
@@ -29,10 +30,47 @@ const contacts = [
 ]
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null)
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const mailtoLink = `mailto:hyttalo2002@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`)}`
+      window.location.href = mailtoLink
+      
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+      
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } catch (error) {
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -109,6 +147,88 @@ const Contact = () => {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          className="contact-form-wrapper"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6 }}
+        >
+          <h3 className="form-title">Envie uma Mensagem</h3>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="name">Nome</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Seu nome"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="seu@email.com"
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="subject">Assunto</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                placeholder="Assunto da mensagem"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">Mensagem</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows="6"
+                placeholder="Sua mensagem aqui..."
+              ></textarea>
+            </div>
+            {submitStatus && (
+              <motion.div
+                className={`form-status ${submitStatus}`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {submitStatus === 'success' 
+                  ? 'Mensagem enviada com sucesso!'
+                  : 'Erro ao enviar mensagem. Tente novamente.'}
+              </motion.div>
+            )}
+            <motion.button
+              type="submit"
+              className="btn btn-primary form-submit"
+              disabled={isSubmitting}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <FaPaperPlane />
+              {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+            </motion.button>
+          </form>
         </motion.div>
       </div>
 
