@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
@@ -30,42 +31,48 @@ const projects = [
   {
     title: 'TeleUp',
     description: 'Solução #1 em gamificação para call centers. Transforme seu call center em uma experiência gamificada com sistema de pontos, rankings em tempo real, competições entre equipes e métricas detalhadas. Aumente a produtividade, reduza o turnover e motive sua equipe com resultados garantidos em 30 dias.',
-    image: '/img/pexels-anete-lusina-4792733.jpg',
+    image: '/img/teleup_login_screen.png',
     tags: ['React', 'Node.js', 'TypeScript'],
-    liveUrl: '#',
+    liveUrl: 'https://teleupvercelapp.vercel.app/',
     githubUrl: 'https://github.com/EuHttl/teleup'
   },
   {
     title: 'QR Code Generator',
     description: 'Gerador de QR Code versátil e intuitivo. Permite criar códigos QR personalizados para diversos fins, com opções de customização e download.',
-    image: '/img/pexels-jddaniel-2385477.jpg',
+    image: '#',
     tags: ['React', 'JavaScript', 'CSS'],
-    liveUrl: '#',
+    liveUrl: 'https://github.com/EuHttl/qrcode.generator',
     githubUrl: 'https://github.com/EuHttl/qrcode.generator'
   },
   {
     title: 'JohariTele-up',
     description: 'Aplicação web desenvolvida para comunicação e gestão. Interface moderna e responsiva com funcionalidades avançadas de interação e gerenciamento de dados.',
-    image: '/img/fotis-fotopoulos-SyvsTmuuZyM-unsplash.jpg',
+    image: '/img/johari.png',
     tags: ['React', 'Node.js', 'MongoDB'],
-    liveUrl: '#',
+    liveUrl: 'https://johari-tele-up.vercel.app/',
     githubUrl: 'https://github.com/EuHttl/JohariTele-up'
   },
   {
     title: 'MeuCaixa',
     description: 'Sistema de controle financeiro e gestão de caixa. Aplicação completa para gerenciamento de receitas, despesas e relatórios financeiros detalhados.',
-    image: '/img/andras-vas-Bd7gNnWJBkU-unsplash.jpg',
+    image: '/img/meuCaixa.png',
     tags: ['React', 'Node.js', 'MySQL'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/EuHttl/MeuCaixa'
+    liveUrl: 'https://meucaixa.vercel.app/',
   }
 ]
 
 const Projects = () => {
+  const [selectedFilter, setSelectedFilter] = useState('Todos')
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
+
+  const allTags = ['Todos', ...new Set(projects.flatMap(p => p.tags))]
+
+  const filteredProjects = selectedFilter === 'Todos' 
+    ? projects 
+    : projects.filter(p => p.tags.includes(selectedFilter))
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -105,12 +112,30 @@ const Projects = () => {
         </motion.div>
 
         <motion.div
+          className="projects-filters"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3 }}
+        >
+          {allTags.map((tag) => (
+            <button
+              key={tag}
+              className={`filter-btn ${selectedFilter === tag ? 'active' : ''}`}
+              onClick={() => setSelectedFilter(tag)}
+            >
+              {tag}
+            </button>
+          ))}
+        </motion.div>
+
+        <motion.div
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
+          key={selectedFilter}
         >
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <motion.article
               key={project.title}
               className="project-card"
