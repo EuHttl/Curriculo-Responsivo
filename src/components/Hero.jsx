@@ -103,8 +103,24 @@ const Hero = () => {
 
             <motion.p className="hero-description" variants={itemVariants}>
               Formado em <strong>Análise e Desenvolvimento de Sistemas</strong>, 
-              especializado em criar soluções web modernas e eficientes.
+              especializado em criar soluções web modernas e eficientes com foco em 
+              performance, escalabilidade e experiência do usuário.
             </motion.p>
+
+            <motion.div className="hero-stats" variants={itemVariants}>
+              <div className="stat-item">
+                <span className="stat-number">7+</span>
+                <span className="stat-label">Projetos</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">1+</span>
+                <span className="stat-label">Anos de Experiência</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">100%</span>
+                <span className="stat-label">Dedicação</span>
+              </div>
+            </motion.div>
 
             <motion.div className="hero-cta" variants={itemVariants}>
               <motion.a
@@ -159,7 +175,7 @@ const Hero = () => {
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <img
-                src="/img/profile.jpeg"
+                src="/img/profile_linkedin.jpeg"
                 alt="Hyttalo Costa"
                 className="profile-image"
               />
