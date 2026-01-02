@@ -52,7 +52,7 @@ const Footer = () => {
           </motion.div>
           
           <p className="footer-copyright">
-            &copy; {currentYear} Hyttalo Costa. Todos os direitos reservados.
+            &copy; {currentYear} Hyttalo Costa.
           </p>
         </motion.div>
       </div>
