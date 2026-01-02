@@ -5,13 +5,26 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 200)
+      
+      const sections = ['home', 'about', 'projects', 'contact']
+      const scrollPosition = window.scrollY + 150
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i])
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i])
+          break
+        }
+      }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -74,38 +87,44 @@ const Header = () => {
                 exit={{ opacity: 0, x: 300 }}
                 transition={{ duration: 0.3 }}
               >
-                {navLinks.map((link, index) => (
-                  <motion.li
-                    key={link.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <a
-                      href={link.href}
-                      className="nav-link"
-                      onClick={(e) => handleLinkClick(e, link.href)}
+                {navLinks.map((link, index) => {
+                  const sectionId = link.href.replace('#', '')
+                  return (
+                    <motion.li
+                      key={link.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
                     >
-                      {link.label}
-                    </a>
-                  </motion.li>
-                ))}
+                      <a
+                        href={link.href}
+                        className={`nav-link ${activeSection === sectionId ? 'active' : ''}`}
+                        onClick={(e) => handleLinkClick(e, link.href)}
+                      >
+                        {link.label}
+                      </a>
+                    </motion.li>
+                  )
+                })}
               </motion.ul>
             )}
           </AnimatePresence>
 
           <ul className="nav-list desktop">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="nav-link"
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace('#', '')
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={`nav-link ${activeSection === sectionId ? 'active' : ''}`}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </nav>
       </div>
